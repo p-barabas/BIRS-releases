@@ -39,10 +39,11 @@ szükséges riportokat, nyomtatványokat.</p>
 </ul>
 
 <h2>Mire használja a BIRS a Google-fiókot?</h2>
-<p>Csak akkor kapcsolódik a Google-fiókhoz, ha az üzemeltető bekapcsolja a Google Drive mentést. Ekkor kizárólag a
-<code>drive.file</code> engedélyt kéri, így <strong>csak a saját maga által létrehozott fájlokat</strong> éri el
-(a „BIRS mentések” mappát és a benne lévő, AES-256 titkosítású mentéseket). A program ezeket a fájlokat feltölti,
-ellenőrzi, a régieket törli, és szükség esetén visszaállítja. A fiók többi adatához nem fér hozzá, és a
+<p>Csak akkor kapcsolódik a Google-fiókhoz, ha az üzemeltető bekapcsolja a Google Drive mentést. Ekkor a
+<code>drive.file</code> engedéllyel <strong>csak a saját maga által létrehozott fájlokat</strong> írja és törli
+(a „BIRS mentések” mappát és a benne lévő, AES-256 titkosítású mentéseket), a <code>drive.readonly</code> engedéllyel
+pedig olvassa a „BIRS mentések” nevű mappák tartalmát, hogy egy korábbi telepítés mentései is visszaállíthatók legyenek.
+A Drive többi fájljának tartalmát nem nyitja meg, a fiók más adataihoz (e-mail, névjegyek, naptár) nem fér hozzá, és a
 Google-adatokat senkinek nem továbbítja. Részletek az <a href="adatvedelem.html">adatvédelmi tájékoztatóban</a>.</p>
 
 <h2>Letöltés</h2>
@@ -56,10 +57,11 @@ Google-adatokat senkinek nem továbbítja. Részletek az <a href="adatvedelem.ht
 <p><strong>BIRS – Bérfőzők Irodai Segédje</strong> (“Office Assistant for Contract Distilleries”) is a record-keeping
 desktop application for Hungarian contract distilleries. It runs on the distillery's own computer and is not a cloud
 service. It keeps records of customers, distillations and the excise ledger, and produces the required reports.</p>
-<p>Optionally, the operator can enable encrypted backups to the distillery's own Google Drive. BIRS then requests only
-the <code>drive.file</code> scope, so it can access only the files it creates itself (AES-256 encrypted backups in a
-“BIRS mentések” folder) in order to upload, verify, prune and restore them. It cannot see any other data in the
-account, and Google user data is never shared with the developer or any third party.</p>
+<p>Optionally, the operator can enable encrypted backups to the distillery's own Google Drive. BIRS then requests the
+<code>drive.file</code> scope to upload, verify and prune the files it creates itself (AES-256 encrypted backups in a
+“BIRS mentések” folder), and the <code>drive.readonly</code> scope to list and download backups in folders of that
+name that an earlier installation created, so they can be restored. It does not open any other Drive files and has no
+access to other data in the account, and Google user data is never shared with the developer or any third party.</p>
 <p>
   <a href="adatvedelem.html#en">Privacy Policy</a> ·
   <a href="feltetelek.html#en">Terms of Service</a> ·

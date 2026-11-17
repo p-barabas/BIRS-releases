@@ -16,7 +16,7 @@
 </head>
 <body>
 <h1>BIRS – Adatvédelmi tájékoztató</h1>
-<p class="meta">BIRS – Bérfőzők Irodai Segédje · Hatályos: 2026. november 7.</p>
+<p class="meta">BIRS – Bérfőzők Irodai Segédje · Hatályos: 2026. november 17.</p>
 <nav><a href="feltetelek.html">Felhasználási feltételek</a> · <a href="#en">English summary</a></nav>
 
 <h2>1. Mi a BIRS?</h2>
@@ -24,11 +24,16 @@
 bérfőzde (a program üzemeltetője) kezeli, ő az adatkezelő. A program készítője: Dr. Barabás Péter.</p>
 
 <h2>2. Milyen Google-adatokhoz fér hozzá a program?</h2>
-<p>Ha az üzemeltető bekapcsolja a mentést a Google Drive-ra, a program a Google-fiókhoz kizárólag a
-<code>drive.file</code> engedéllyel kapcsolódik. Ezzel <strong>csak az általa létrehozott fájlokat</strong> éri el:
-a „BIRS mentések” mappát és a benne lévő mentéseket. A fiók többi fájlját, e-mailjeit, névjegyeit, naptárát nem látja.</p>
-<p>A program a Google-adatokat kizárólag arra használja, hogy a mentéseket feltöltse, ellenőrizze, a régieket
-törölje, és szükség esetén visszaállítsa őket.</p>
+<p>Ha az üzemeltető bekapcsolja a mentést a Google Drive-ra, a program két engedéllyel kapcsolódik a Google-fiókhoz:</p>
+<ul>
+  <li><code>drive.file</code>: <strong>csak az általa létrehozott fájlokat</strong> (a „BIRS mentések” mappát és a
+    benne lévő mentéseket) hozhatja létre, módosíthatja és törölheti.</li>
+  <li><code>drive.readonly</code>: olvasási jog a Drive-hoz. A program ezt kizárólag arra használja, hogy a
+    „BIRS mentések” nevű mappák tartalmát listázza és letöltse, így egy korábbi telepítés (pl. a régi gép) mentései is
+    visszaállíthatók. Más fájlokat nem nyit meg, nem módosít és nem töröl.</li>
+</ul>
+<p>A fiók e-mailjeit, névjegyeit, naptárát nem látja. A program a Google-adatokat kizárólag arra használja, hogy a
+mentéseket feltöltse, ellenőrizze, a régieket törölje, és szükség esetén visszaállítsa őket.</p>
 
 <h2>3. Hol tárolódnak az adatok?</h2>
 <ul>
@@ -65,8 +70,10 @@ címzett kapja meg, és csak a hiba javítására használja.</p>
 
 <h2 id="en">English summary</h2>
 <p>BIRS is a record-keeping program for a Hungarian contract distillery. It runs on the distillery's own computer.
-When Google Drive backup is enabled, it uses only the <code>drive.file</code> scope: it can access only the files it
-creates (encrypted backups in a “BIRS mentések” folder) and nothing else in the account. The refresh token stays on
+When Google Drive backup is enabled, it uses the <code>drive.file</code> scope to create, update and delete only the
+files it creates (encrypted backups in a “BIRS mentések” folder), and the <code>drive.readonly</code> scope solely to
+list and download backups in folders of that name created by an earlier installation, so they can be restored. It does
+not open, modify or delete any other files and has no access to other data in the account. The refresh token stays on
 the distillery's computer. Google user data is used only to upload, verify, prune and restore backups, and is never
 shared with the developer or any third party, sold, or used for advertising. BIRS's use and transfer of information
 received from Google APIs adheres to the
